@@ -1,0 +1,20 @@
+<div class="container mx-auto">
+  <%= form_with model: @item, local: true do |form| %>
+    <p>
+      <%= form.label :title %><br>
+      <%= form.text_field :title, placeholder: "Title of the item", class: 'form-control'%>
+    </p>
+    <p>
+      <%= form.label :price %><br>
+      <%= form.number_field :price ,class: 'form-control',placeholder: "Enter amount for item"%>
+    </p>
+    <p>
+      <%= form.label :description %><br>
+      <%= form.text_area :desc, rows: 8,  placeholder: "Description of the the Food Item", class: 'form-control'%>
+    </p>
+
+    <p class="btn-form mb-5">
+      <%= form.submit %>
+    </p>
+  <% end %>
+</div>
