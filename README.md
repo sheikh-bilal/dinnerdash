@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# dinnerdash
+rails dinnerdash project
+>>>>>>> d2ebcb232b30f0593c10fb3147a795e79e12732d
