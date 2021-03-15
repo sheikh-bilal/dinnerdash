@@ -1,11 +1,11 @@
-<h1 class="text-center pt-4 pb-4">Food Menu Items</h1>
+<h1 class="text-center pt-4 mb-4">Food Menu Items</h1>
 <div class="container">
 <% @items.each_slice(3) do |item| %>
   <div class="row">
     <% item.each do |items| %>
       <div class="col-md-4 mt-2 mb-4">
         <div class="card">
-        <img class="card-img" src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=350" alt="Vans">
+        <%= image_tag items.image.url, class: "card-image"%>
         <div class="card-img-overlay d-flex justify-content-end">
           <a href="#" class="card-link text-danger like">
             <i class="fa fa-heart"></i>
