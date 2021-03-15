@@ -15,6 +15,10 @@
               <%= form.number_field :price ,class: 'form-control',placeholder: "Enter price for item"%>
             </p>
             <p>
+              <%= form.label :Categories %><br>
+              <%= form.collection_select :category_id, Category.all, :id, :name, class: 'selectpicker'%>
+            </p>
+            <p>
               <%= form.label :image %><br>
               <%= form.file_field :image ,class: 'form-control'%>
             </p>

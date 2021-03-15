@@ -5,7 +5,7 @@
     <% item.each do |items| %>
       <div class='col-md-4 mt-2 mb-4'>
         <div class='card'>
-        <%= image_tag items.image.url, class: 'card-image'%>
+        <%= image_tag items.image.url, class: 'card-image img-crop'%>
         <div class='card-img-overlay d-flex justify-content-end'>
           <a href='#' class='card-link text-danger like'>
             <i class='fa fa-heart'></i>
@@ -14,7 +14,7 @@
         <div class='card-body'>
           <h4 class='card-title'><%= items.title %></h4>
           <p class='card-text'><%= items.desc %></p>
-          <h6 class='card-subtitle mb-2 text-muted'>Category: Pakistani-Food</h6>
+          <h6 class='card-subtitle mb-2 text-muted'><%= Category.find(items.category_id).name%></h6>
           <div><span class='fa fa-star checked'></span>
             <span class='fa fa-star checked'></span>
             <span class='fa fa-star checked'></span>

@@ -2,13 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.btn-form [type="submit"] {
-  padding: 8px 15px;
-  background-color: #28a745;
-  border-color: #28a745;
-  color: white;
-  border-radius: 5px;
-}
 
 .item_title,
 .item_text {
@@ -73,4 +66,9 @@
 
 .checked {
   color: #28a745;
+}
+
+.img-crop {
+  max-width: 350px;
+  max-height: 250px;
 }
