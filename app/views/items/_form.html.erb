@@ -1,0 +1,33 @@
+<div class="page-wrapper pt-5 pb-5 ">
+<%= render 'shared/errors', obj: @item%>
+  <div class="wrapper wrapper--w960">
+    <div class="card-2">
+      <div class="card-heading"></div>
+        <div class="card-body">
+          <h2 class="title"><%= local_assigns[:action] %></h2>
+          <%= form_with model: @item, local: true do |form| %>
+            <p>
+              <%= form.label :title %><br>
+              <%= form.text_field :title, placeholder: "Title of the item", class: 'form-control'%>
+            </p>
+            <p>
+              <%= form.label :price %><br>
+              <%= form.number_field :price ,class: 'form-control',placeholder: "Enter price for item"%>
+            </p>
+            <p>
+              <%= form.label :image %><br>
+              <%= form.file_field :image ,class: 'form-control'%>
+            </p>
+            <p>
+              <%= form.label :description %><br>
+              <%= form.text_area :desc, rows: 8,  placeholder: "Description of the the Food Item", class: 'form-control'%>
+            </p>
+
+            <p class="btn-form  mb-5 mt-4">
+              <%= form.submit %>
+            </p>
+        <% end %>
+        </div>
+    </div>
+  </div>
+</div>
