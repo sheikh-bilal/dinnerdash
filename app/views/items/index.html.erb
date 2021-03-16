@@ -14,7 +14,7 @@
         <div class='card-body'>
           <h4 class='card-title'><%= items.title %></h4>
           <p class='card-text'><%= items.desc %></p>
-          <h6 class='card-subtitle mb-2 text-muted'><%= Category.find(items.category_id).name%></h6>
+          <h6 class='card-subtitle mb-2 text-muted'><%= findCategory(items)%></h6>
           <div><span class='fa fa-star checked'></span>
             <span class='fa fa-star checked'></span>
             <span class='fa fa-star checked'></span>
