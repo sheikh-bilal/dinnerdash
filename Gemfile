@@ -12,6 +12,10 @@ gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'bootstrap', '~> 4.0.0'
 
+gem 'jquery-rails'
+
+gem 'rails-ujs', '~> 0.1.0'
+
 gem 'carrierwave', '~> 2.0'
 
 gem 'sass-rails', '~> 5.0'

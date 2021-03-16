@@ -1,20 +1,19 @@
 <h1 class='text-center pt-4 mb-4'>Food Menu Items</h1>
 <div class='container'>
+<div class='row'>
 <% @items.each_slice(3) do |item| %>
-  <div class='row'>
     <% item.each do |items| %>
-      <div class='col-md-4 mt-2 mb-4'>
+      <div class='col-lg-4 col-md-6 mt-2 mb-4'>
         <div class='card'>
         <%= image_tag items.image.url, class: 'card-image img-crop'%>
-        <div class='card-img-overlay d-flex justify-content-end'>
-          <a href='#' class='card-link text-danger like'>
-            <i class='fa fa-heart'></i>
-          </a>
-        </div>
         <div class='card-body'>
-          <h4 class='card-title'><%= items.title %></h4>
+          <h4 class='card-title'><%= link_to items.title, item_path(items) %></h4>
           <p class='card-text'><%= items.desc %></p>
-          <h6 class='card-subtitle mb-2 text-muted'><%= findCategory(items)%></h6>
+          <p class="card-subtitle mb-2 text-muted">
+            <% if items.categories.any? %>
+              <b>Categories: </b><%= render items.categories %>
+            <%end%>
+          </p>
           <div><span class='fa fa-star checked'></span>
             <span class='fa fa-star checked'></span>
             <span class='fa fa-star checked'></span>
@@ -29,6 +28,6 @@
       </div>
       </div>
     <% end %>
-  </div>
 <% end %>
+</div>
 </div>
