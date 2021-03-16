@@ -1,0 +1,7 @@
+<h1 class='text-center pt-4 mb-4'>Food Categories</h1>
+<% @categories.each do |category| %>
+  <div class=' container card bg-light p-3 col-sm-8 col-sm-offset-2 mt-2 mb-2' width='18rem'>
+    <h2 class='text-center ' ><strong>category-name: </strong><%= category.name %></h2>
+  </div>
+<%end%>
+<p class='mb-5'></p>

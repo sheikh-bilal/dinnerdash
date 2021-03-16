@@ -1,0 +1,14 @@
+<div class="container">
+  <div class = "col-sm-6 mx-auto">
+    <%= form_with model: @category, local: true do |form| %>
+      <%= render 'shared/errors', obj: @category%>
+      <p>
+        <%= form.label :name %>
+        <%= form.text_field :name, placeholder: "Name of the Category", class: 'form-control'%>
+      </p>
+      <p class='btn-form'>
+        <%= form.submit %>
+      </p>
+    <% end %>
+  </div>
+</div>
