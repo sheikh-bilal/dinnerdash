@@ -5,7 +5,7 @@
     <% item.each do |items| %>
       <div class='col-lg-4 col-md-6 mt-2 mb-4'>
         <div class='card'>
-        <%= image_tag items.image.url, class: 'card-image img-crop'%>
+        <%= image_tag items.image.url(:thumb), class: 'card-image img-crop'%>
         <div class='card-body'>
           <h4 class='card-title'><%= link_to items.title, item_path(items) %></h4>
           <p class='card-text'><%= items.desc %></p>
