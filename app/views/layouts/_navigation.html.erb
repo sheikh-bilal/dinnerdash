@@ -10,10 +10,14 @@
     <!-- Navbar links -->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <%= link_to items_path, :class => 'nav-link' do %>
-            <i class="fa fa-cutlery"></i> Menu
-          <% end %>
+        <li class="dropdown nav-item">
+          <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cutlery"></i> Menu <span class="caret"></span></a>
+          <ul class="dropdown-menu mt-3 text-center">
+            <li class="nav-link"><%= link_to "All Categories", items_path %></li>
+            <% Category.all.each do |category| %>
+              <hr class='mt-1 mb-1'><li class="nav-link"><%= link_to "#{category.name}", category_path(category) %></li>
+            <% end %>
+          </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"><i class="fa fa-user" aria-hidden="true"></i> Login </a>

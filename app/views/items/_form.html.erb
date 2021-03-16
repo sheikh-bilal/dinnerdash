@@ -15,8 +15,9 @@
               <%= form.number_field :price ,class: 'form-control',placeholder: "Enter price for item"%>
             </p>
             <p>
-              <%= form.label :Categories %><br>
-              <%= form.collection_select :category_id, Category.all, :id, :name, class: 'selectpicker'%>
+              <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+                <% cb.label(class: "checkbox-inline input_checkbox mr-2") {cb.check_box(class: "checkbox") + ' ' + cb.text} %>
+              <% end %>
             </p>
             <p>
               <%= form.label :image %><br>

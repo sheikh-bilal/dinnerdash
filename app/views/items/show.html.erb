@@ -3,15 +3,14 @@
     <div class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
       <div class="card">
         <%= image_tag @item.image.url, class: "card-image img-crop"%>
-        <div class="card-img-overlay d-flex justify-content-end">
-          <a href="#" class="card-link text-danger like">
-            <i class="fa fa-heart"></i>
-          </a>
-        </div>
         <div class="card-body">
-          <h4 class="card-title"><%= @item.title %></h4>
+          <h4 class="card-title"><%= link_to @item.title, item_path(@item) %></h4>
           <p class="card-text"><%= @item.desc %></p>
-          <h6 class="card-subtitle mb-2 text-muted"><%= Category.find(@item.category_id).name%></h6>
+          <p class="card-subtitle mb-2 text-muted">
+            <% if @item.categories.any? %>
+              <b>Categories: </b><%= render @item.categories %>
+            <%end%>
+          </p>
           <div><span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
@@ -21,6 +20,13 @@
           <div class="buy d-flex justify-content-between align-items-center">
             <div class="price text-success"><h5 class="mt-4"><%= @item.price %>Rs</h5></div>
              <a href="#" class="btn btn-danger mt-3"><i class="fa fa-shopping-cart mr-1"></i> Add to Cart</a>
+          </div><hr class='pb-2'>
+          <div class="item-actions">
+              <%= link_to 'Edit Item', edit_item_path(@item), class:"btn btn-xs btn-primary" %>
+              <%= link_to 'Delete Item', item_path(@item), method: :delete,
+                                          data: {confirm: "Are You sure? you want to delete item?"},
+                                          class: "btn btn-xs btn-danger" %>
+              <%= link_to 'Item Menu', items_path, class: "btn btn-xs btn-success" %>
           </div>
         </div>
       </div>

@@ -1,3 +1,10 @@
-<div class=' container card bg-light p-3 col-sm-8 col-sm-offset-2 mt-5 mb-5' width='18rem'>
-  <h2 class='text-center ' ><strong>Category name: </strong><%= @category.name %></h2>
+<div class=' container card bg-light p-3 col-sm-6 col-sm-offset-2 mt-5 mb-5' width='18rem'>
+  <h2 class='text-center ' ><strong>Category name: </strong><%= @category.name %></h2><hr>
+  <div class="item-actions text-center">
+    <%= link_to 'Edit', edit_category_path(@category), class:"btn btn-xs btn-primary" %>
+    <%= link_to 'All Categories', categories_path, class: "btn btn-xs btn-success" %>
+    <%= link_to 'Delete ', category_path(@category), method: :delete,
+                                          data: {confirm: "Are You sure? you want to delete item?"},
+                                          class: "btn btn-xs btn-danger" %>
+  </div>
 </div>
