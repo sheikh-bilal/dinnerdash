@@ -2,6 +2,9 @@
 
 # items controller for managing action on food items
 class ItemsController < ApplicationController
+
+  before_action :set_item, only: [:edit, :show, :update, :destroy]
+
   def index
     @items = Item.all
   end
@@ -15,30 +18,26 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to @item
     else
-      render 'new'
+      render "new"
     end
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to @item
     else
-      render 'edit'
+      render "edit"
     end
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def destroy
-    @article = Item.find(params[:id])
-    @article.destroy
+    @item.destroy
     redirect_to items_path
   end
 
@@ -46,5 +45,9 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:title, :price, :image, :desc, category_ids: [])
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
