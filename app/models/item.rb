@@ -6,4 +6,11 @@ class Item < ApplicationRecord
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates_uniqueness_of :title
   mount_uploader :image, AvatarUploader
+  serialize :category_ids
+  validate :must_have_one_item
+
+  private
+  def must_have_one_item
+  errors.add(:base, 'You must select at least one item') if self.category_ids.all?{|item| item.blank? }
+  end
 end
