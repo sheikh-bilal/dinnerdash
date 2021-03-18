@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
-  def new
+   def new
     @item = Item.new
   end
 
@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to @item
     else
-      render "new"
+      render 'new'
     end
   end
 
