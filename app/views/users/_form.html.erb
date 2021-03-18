@@ -1,0 +1,29 @@
+<div class="main mt-5 mb-5">
+  <section class="signup">
+  <%= render 'shared/errors', obj: @user%>
+    <div class="container-signup">
+      <div class="signup-content shadow">
+          <%= form_with model: @user, local: true do |f| %>
+            <h2 class="form-title"><%= local_assigns[:action] %></h2>
+            <div class="form-group">
+              <%= f.text_field :fname, placeholder: 'Enter Full Name', class: 'form-input'%>
+            </div>
+            <div class="form-group">
+              <%= f.email_field :email, placeholder: 'Enter valid email address', class: 'form-input'%>
+            </div>
+            <div class="form-group">
+              <%= f.text_field :dname, placeholder: 'Enter display name(optional)', class: 'form-input'%>
+            </div>
+            <div class="form-group">
+              <%= f.submit class:'signup-btn mt-3 mb-4'%>
+            </div>
+        <%end%>
+        <% if local_assigns[:path] == 'new'%>
+        <p class="text-center">
+          Have already an account ? <a href="#" class="">Login here</a>
+        </p>
+        <%end%>
+      </div>
+    </div>
+  </section>
+</div>

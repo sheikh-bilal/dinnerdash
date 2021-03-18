@@ -1,0 +1,30 @@
+<h1 class='text-center pt-4 mb-4'>All Users</h1>
+<div class='container'>
+<div class='row'>
+<% @users.each_slice(3) do |user| %>
+    <% user.each do |users| %>
+      <div class='col-lg-4 col-md-6 mt-2 mb-4'>
+      <div class="card shadow">
+        <div class="card-body ml-2">
+          <h4 class="card-title"><%= link_to users.fname, user_path(users) %></h4>
+          <p class="card-text"><b>Email: </b><%= users.email %></p>
+          <p class="card-subtitle mb-2 text-muted">
+            <% if users.dname.present? %>
+              <b>DisplayName: </b><%= users.dname %>
+            <%else%>
+              <b>DisplayName: </b><span>Not given..</span>
+            <%end%>
+          </p><hr>
+          <div class="user-actions ">
+            <%= link_to 'Edit User', edit_user_path(users), class:"btn btn-xs btn-primary" %>
+            <%= link_to 'Delete User', user_path(users), method: :delete,
+                                          data: {confirm: "Are You sure? you want to delete item?"},
+                                          class: "btn btn-xs btn-danger" %>
+          </div>
+        </div>
+      </div>
+      </div>
+    <% end %>
+<% end %>
+</div>
+</div>
