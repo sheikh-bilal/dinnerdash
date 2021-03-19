@@ -12,4 +12,8 @@ class UserPolicy < ApplicationPolicy
     return true if user.present? and user.admin?
   end
 
+  def destroy?
+    return true if user.present?
+  end
+
 end
