@@ -21,12 +21,14 @@
             <div class="price text-success"><h5 class="mt-4"><%= @item.price %>Rs</h5></div>
              <a href="#" class="btn btn-danger mt-3"><i class="fa fa-shopping-cart mr-1"></i> Add to Cart</a>
           </div><hr class='pb-2'>
-          <div class="item-actions">
+          <div class="item-actions text-center">
+            <% if policy(:item).show? %>
               <%= link_to 'Edit Item', edit_item_path(@item), class:"btn btn-xs btn-primary" %>
               <%= link_to 'Delete Item', item_path(@item), method: :delete,
-                                          data: {confirm: "Are You sure? you want to delete item?"},
+                                          data: {confirm: "Are You sure? you want to delete item?", class: 'modal-body'},
                                           class: "btn btn-xs btn-danger" %>
-              <%= link_to 'Item Menu', items_path, class: "btn btn-xs btn-success" %>
+            <%end%>
+            <%= link_to 'Item Menu', items_path, class: "btn btn-xs btn-success" %>
           </div>
         </div>
       </div>

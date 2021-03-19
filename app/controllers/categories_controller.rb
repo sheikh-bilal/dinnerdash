@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    authorize @category
   end
 
   def create
@@ -17,12 +18,15 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    authorize @categories
   end
 
   def show
+    authorize @category
   end
 
   def edit
+    authorize @category
   end
 
   def update

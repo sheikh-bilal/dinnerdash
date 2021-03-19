@@ -11,10 +11,12 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    authorize @item
   end
 
   def create
     @item = Item.new(item_params)
+    authorize @item
     if @item.save
       redirect_to @item
     else
@@ -34,9 +36,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    authorize @item
   end
 
   def destroy
+    authorize @item
     @item.destroy
     redirect_to items_path
   end
