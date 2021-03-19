@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @users  = User.all
+    authorize @users
   end
 
   def new
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    authorize @user
   end
 
   def edit
@@ -34,6 +36,6 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = current_user
+    @user = User.find(params[:id])
   end
 end

@@ -13,11 +13,10 @@
             <%end%>
           </p><hr>
           <div class="user-actions text-center">
-              <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-xs btn-primary" %>
-              <%= link_to 'Delete', user_path(@user), method: :delete,
-                                          data: {confirm: "Are You sure? you want to delete item?"},
+              <%= link_to 'Delete User', user_path(@user), method: :delete,
+                                          data: {confirm: "Are You sure? you want to delete item?",class: 'modal-body'},
                                           class: "btn btn-xs btn-danger" %>
-              <%= link_to 'Users', users_path, class: "btn btn-xs btn-success" %>
+              <%= link_to 'All Users', users_path, class: "btn btn-xs btn-success" %>
           </div>
         </div>
       </div>

@@ -16,10 +16,9 @@
             <%end%>
           </p><hr>
           <div class="user-actions ">
-            <%= link_to 'Edit User', edit_user_path(users), class:"btn btn-xs btn-primary" %>
             <%= link_to 'Delete User', user_path(users), method: :delete,
                                           data: {confirm: "Are You sure? you want to delete item?"},
-                                          class: "btn btn-xs btn-danger" %>
+                                          class: "btn btn-md btn-danger" %>
           </div>
         </div>
       </div>
