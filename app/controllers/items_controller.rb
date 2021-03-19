@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
-   def new
+  def new
     @item = Item.new
     authorize @item
   end
