@@ -1,0 +1,6 @@
+<li class='nav-link cat-li'>
+  <%= link_to " You have ordered #{current_order.order_items.size} items" %><hr class='mb-0'>
+</li>
+<li class='nav-link cat-li'>
+  <%= link_to "Order value: #{current_order.subtotal }Rs", bills_path%>
+</li>
