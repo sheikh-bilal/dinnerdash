@@ -4,6 +4,7 @@
 class ItemsController < ApplicationController
 
   before_action :set_item, only: [:edit, :show, :update, :destroy]
+  before_action :set_authorize, only: [:new, :create, :edit, :destroy]
 
   def index
     @items = Item.all
@@ -11,12 +12,10 @@ class ItemsController < ApplicationController
 
    def new
     @item = Item.new
-    authorize @item
   end
 
   def create
     @item = Item.new(item_params)
-    authorize @item
     if @item.save
       redirect_to @item
     else
@@ -36,11 +35,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    authorize @item
   end
 
   def destroy
-    authorize @item
     @item.destroy
     redirect_to items_path
   end
@@ -53,5 +50,9 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_authorize
+    authorize @item
   end
 end

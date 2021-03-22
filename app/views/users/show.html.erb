@@ -1,22 +1,19 @@
-<div class="container pt-5 pb-5">
-  <div class="row">
-    <div class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
-      <div class="card shadow">
-        <div class="card-body ml-2">
-          <h4 class="card-title"><%= link_to @user.fname, user_path(@user) %></h4>
-          <p class="card-text"><b>Email: </b><%= @user.email %></p>
-          <p class="card-subtitle mb-2 text-muted">
+<div class='container pt-5 pb-5'>
+  <div class='row'>
+    <div class='col-12 col-sm-8 col-md-6 col-lg-4 mx-auto'>
+      <div class='card shadow'>
+        <div class='card-body ml-2'>
+          <h4 class='card-title'><%= link_to @user.fname, user_path(@user) %></h4><hr>
+          <p class='card-text'><b>Email: </b><%= @user.email %></p>
+          <p class='card-subtitle mb-2 text-muted'>
             <% if @user.dname.present? %>
               <b>DisplayName: </b><%= @user.dname %>
             <%else%>
               <b>DisplayName: </b><span>Not given..</span>
             <%end%>
           </p><hr>
-          <div class="user-actions text-center">
-              <%= link_to 'Delete User', user_path(@user), method: :delete,
-                                          data: {confirm: "Are You sure? you want to delete item?",class: 'modal-body'},
-                                          class: "btn btn-xs btn-danger" %>
-              <%= link_to 'All Users', users_path, class: "btn btn-xs btn-success" %>
+          <div class='user-actions text-center'>
+              <%= link_to 'All Users', users_path, class: 'btn btn-xs btn-success' %>
           </div>
         </div>
       </div>

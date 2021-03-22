@@ -1,10 +1,10 @@
 class CategoriesController < ApplicationController
 
   before_action :set_category, only: [:edit, :update, :show, :destroy]
+  before_action :set_authorize, only: [:new, :show, :edit, :destroy]
 
   def new
     @category = Category.new
-    authorize @category
   end
 
   def create
@@ -22,11 +22,9 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    authorize @category
   end
 
   def edit
-    authorize @category
   end
 
   def update
@@ -50,5 +48,9 @@ class CategoriesController < ApplicationController
 
   def set_category
     @category = Category.find(params[:id])
+  end
+
+  def set_authorize
+    authorize @category
   end
 end

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :set_user, only: [:edit, :update, :show]
+  before_action :set_authorize, only: [:show, :destroy]
 
   def index
     @users  = User.all
@@ -12,7 +13,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    authorize @user
   end
 
   def edit
@@ -25,7 +25,6 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    authorize @user
     @user.destroy
     redirect_to root_path
   end
@@ -38,5 +37,9 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def set_authorize
+    authorize @user
   end
 end
