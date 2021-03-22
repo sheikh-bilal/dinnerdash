@@ -15,4 +15,8 @@ class CategoryPolicy < ApplicationPolicy
   def create?
     return true if user.present? and user.admin?
   end
+
+  def destroy?
+    return true if user.present? and user.admin?
+  end
 end
