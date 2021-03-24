@@ -1,7 +1,7 @@
 # Implement items model
 class Item < ApplicationRecord
   has_many :item_categories
-  has_many :order_items
+  has_many :cart_items
   has_many :categories, through: :item_categories
 
   validates :title, presence: true, length: {minimum: 3, maximum: 30}, uniqueness: true

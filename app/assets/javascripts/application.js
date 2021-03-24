@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+$(document).ready(function(){
+ $('#btnaddcart').click(function () {
+    alert("Item is Added to Cart");
+  })
+  $('#btnupdatecart').click(function () {
+    alert("Item has been Updated");
+  });
+})

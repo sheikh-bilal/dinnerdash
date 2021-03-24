@@ -1,6 +1,4 @@
 <li class='nav-link cat-li'>
-  <%= link_to " You have ordered #{current_order.order_items.size} items" %><hr class='mb-0'>
+  <%= link_to " You have ordered #{current_cart.cart_items.size} item with value: #{current_cart.subtotal }Rs" %><hr class='mb-0'>
 </li>
-<li class='nav-link cat-li'>
-  <%= link_to "Order value: #{current_order.subtotal }Rs", bills_path%>
-</li>
+<li class='nav-link cat-li'><%= link_to 'Checkout Cart',bills_path, class: 'btn btn-danger'%></li>

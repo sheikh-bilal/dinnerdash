@@ -1,26 +1,18 @@
 class OrderItemsController < ApplicationController
-
+  include OrderItemsHelper
   def create
-    @order = current_order
-    @order_item = @order.order_items.new(order_params)
-    @order.save
-    session[:order_id] = @order.id
-  end
+    @order = Order.new
+    @order.total = current_cart.subtotal
 
-  def update
-    @order = current_order
-    @order_item = @order.order_items.find(params[:id])
-    @order_item.update_attributes(order_params)
-    @order_items = current_order.order_items
+    if @order.save
+      copydata(@order)
+      session[:cart_id] = nil
+      current_cart.destroy
+      redirect_to orders_path
+    else
+      render items_path
+    end
   end
-
-  def destroy
-    @order = current_order
-    @order_item = @order.order_items.find(params[:id])
-    @order_item.destroy
-    @order_items = current_order.order_items
-  end
-
 
   private
 
