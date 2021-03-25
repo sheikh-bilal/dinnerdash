@@ -22,7 +22,11 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @items = @category.items
+    if user_signed_in?
+      @items = @category.items
+    else
+      @items = @category.items.where( status: 'active')
+    end
     @cart_item = current_cart.cart_items.new
   end
 

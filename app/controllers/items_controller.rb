@@ -7,7 +7,12 @@ class ItemsController < ApplicationController
   before_action :set_authorize, only: [:new, :create, :edit, :destroy]
 
   def index
-    @items = Item.all
+    if user_signed_in?
+      @items = Item.all
+    else
+      @items = Item.where( status: 'active')
+    end
+
     @cart_item = current_cart.cart_items.new
   end
 

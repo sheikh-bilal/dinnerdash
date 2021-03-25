@@ -8,4 +8,9 @@ module ApplicationHelper
       Cart.new
     end
   end
+
+  def is_retire(record)
+    return true if record.status == 'retire'
+  end
+
 end
