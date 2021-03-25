@@ -2,7 +2,9 @@ class OrderItemsController < ApplicationController
   include OrderItemsHelper
   def create
     @order = Order.new
+    authorize @order
     @order.total = current_cart.subtotal
+    @order.user_id = current_user.id
 
     if @order.save
       copydata(@order)
