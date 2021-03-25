@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 
   before_action :set_category, only: [:edit, :update, :show, :destroy]
-  before_action :set_authorize, only: [:new, :show, :edit, :destroy]
+  before_action :set_authorize, only: [:new, :edit, :destroy]
 
   def new
     @category = Category.new
@@ -22,6 +22,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @items = @category.items
+    @cart_item = current_cart.cart_items.new
   end
 
   def edit
