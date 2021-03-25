@@ -1,0 +1,49 @@
+<div class='main mt-5 mb-5'>
+  <div class='container-signup'>
+    <div class='signup-content shadow'>
+      <h2 class='form-title mb-0'><%= link_to "Order Invoice #{@order.id}", order_path(@order)%></h2>
+      <hr>
+      <table class='invoice'>
+        <tbody>
+          <tr>
+            <td>
+              <b>Customer: </b>
+              <% if current_user.admin? %>
+              <%= link_to User.find(@order.user_id).fname, user_path(@order.user_id) %>
+              <%else%>
+              <%= User.find(@order.user_id).fname %>
+              <%end%>
+              <br><b>Created at: </b><%= @order.created_at%><br>
+              <%= form_with model: @order, local: true do |f| %>
+              <b>
+                Order Status: <span class='text-danger'>
+                <%= f.select :status, options_for_select(dropdowndata(@order), selected: @order.status ) %></span>
+            </td>
+          </tr>
+          <tr>
+          <td>
+          <table class='invoice-items' cellpadding='0' cellspacing='0'>
+          <tbody>
+          <% @order.order_items.each do |order_item|%>
+            <tr>
+            <td><%= link_to Item.find(order_item.item_id).title, item_path(order_item.item_id) %> </b> x <%=order_item.quantity %></td>
+            <td class='alignright'><%= order_item.total%> Rs</td>
+            </tr>
+          <%end%>
+          <tr class='total'>
+          <td class='alignright' width='80%'>Total</td>
+          <td class='alignright'><%=@order.total%> Rs</td>
+          </tr>
+          </tbody>
+          </table>
+          <div class='item-actions text-center mt-5'>
+          <%= f.submit 'Update Status', class:'btn btn-xs btn-danger' %>
+          </div>
+          <%end%>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

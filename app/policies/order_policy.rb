@@ -15,4 +15,8 @@ class OrderPolicy < ApplicationPolicy
   def edit?
     return true if user.present? and user.admin?
   end
+
+  def update?
+    return true if user.present? and user.admin?
+  end
 end
