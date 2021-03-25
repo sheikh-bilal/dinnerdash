@@ -1,3 +1,6 @@
+<% if user_signed_in?%>
+  <li class='nav-link cat-li'><%= link_to 'View Orders',orders_path %></li>
+<%end%>
 <li class='nav-link cat-li'>
   <%= link_to " You have ordered #{current_cart.cart_items.size} item with value: #{current_cart.subtotal }Rs" %><hr class='mb-0'>
 </li>
