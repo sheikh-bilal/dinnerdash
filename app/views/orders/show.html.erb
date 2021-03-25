@@ -9,6 +9,10 @@
             <%end%>
             <p class=''><b>Total price:</b> <%= @order.total%>Rs</p>
             <p><b class=''>Order Status: </b><%= @order.status %></p>
+          </div><hr>
+          <div class='item-actions text-center'>
+            <%= link_to 'Update order', edit_order_path(@order), class:'btn btn-xs btn-danger' %>
+            <%= link_to 'All orders', orders_path, class: 'btn btn-xs btn-success' %>
           </div>
         </div>
       </div>
