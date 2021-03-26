@@ -32,7 +32,7 @@
                 <%= form_for item, remote: true do |f| %>
                 <%= f.hidden_field :item_id, :value => item.item.id %>
                 <%= f.number_field :quantity, :value => item.quantity.to_i , class: 'col-sm-10 text-center mb-2 py-1 ml-3'%>
-                <%= button_tag( :class => "btn btn-success col-sm-5 ml-3", id: 'btnupdatecart') do %> <i class='fa fa-shopping-cart mr-2'></i>Updated Cart
+                <%= button_tag( :class => "btn btn-success col-sm-5 ml-3", onclick: "updatecart()") do %> <i class='fa fa-shopping-cart mr-2'></i>Updated Cart
                 <% end %>
                 <%= link_to cart_item_path(item), method: :delete,
                   data: {confirm: 'Are You sure? you want to delete item?', class: 'modal-body'}, class: 'btn btn-danger col-sm-5' do%>

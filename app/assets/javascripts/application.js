@@ -15,11 +15,10 @@
 //= require bootstrap
 //= require_tree .
 
-$(document).ready(function(){
- $('#btnaddcart').click(function () {
+
+  function addtocart(){
     alert("Item is Added to Cart");
-  })
-  $('#btnupdatecart').click(function () {
-    alert("Item has been Updated");
-  });
-})
+  }
+  function updatecart(){
+    alert("Item is Updated Successfully!");
+  }
