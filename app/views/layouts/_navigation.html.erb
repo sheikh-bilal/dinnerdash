@@ -55,6 +55,40 @@
           </ul>
         </li>
 
+        <%if user_signed_in? and current_user.admin?%>
+          <li class='dropdown nav-item'>
+            <a href='#' class='dropdown-toggle nav-link' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'><i class='fa fa-tasks mr-1'></i>
+            Actions<span class='caret'></span></a>
+            <ul class='dropdown-menu mt-3 text-center bg-dark'>
+                <li class='nav-link cat-li'>
+                  <%= link_to new_item_path do%>
+                    <i class='fa fa-plus mr-1'></i> Create Item
+                  <%end%>
+                </li><hr class='mb-0'>
+                <li class='nav-link cat-li'>
+                  <%= link_to new_category_path do%>
+                    <i class='fa fa-plus mr-1'></i> Add Category
+                  <%end%>
+                </li><hr class='mb-0'>
+                <li class='nav-link cat-li'>
+                  <%= link_to items_path do%>
+                    <i class='fa fa-eye mr-1'></i> Display Items
+                  <%end%>
+                </li><hr class='mb-0'>
+                <li class='nav-link cat-li'>
+                  <%= link_to categories_path do%>
+                    <i class='fa fa-eye mr-1'></i> All Categories
+                  <%end%>
+                </li><hr class='mb-0'>
+                <li class='nav-link cat-li'>
+                  <%= link_to users_path do%>
+                    <i class='fa fa-user mr-1'></i> All Users
+                  <%end%>
+                </li><hr class='mb-0'>
+            </ul>
+          </li>
+        <%end%>
+
         <li class='dropdown nav-item'>
           <a href='#' class='dropdown-toggle nav-link' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'><i class='fa fa-shopping-cart'></i> Orders <span class='caret'></span></a>
           <ul class='dropdown-menu mt-3 text-center bg-dark' id='bill'>

@@ -1,5 +1,9 @@
 class ItemPolicy < ApplicationPolicy
 
+  def new?
+    return true if user.present? and user.admin?
+  end
+
   def create?
     return true if user.present? and user.admin?
   end
@@ -9,11 +13,7 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def edit?
-    if user.present?
-      user.admin?
-    else
-      return false
-    end
+    return true if user.present? and user.admin?
   end
 
   def show?

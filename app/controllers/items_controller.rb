@@ -4,7 +4,7 @@
 class ItemsController < ApplicationController
 
   before_action :set_item, only: [:edit, :show, :update, :destroy]
-  before_action :set_authorize, only: [:new, :create, :edit, :destroy]
+  before_action :set_authorize, only: [:edit, :destroy]
 
   def index
     if user_signed_in?
@@ -18,10 +18,12 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    authorize @item
   end
 
   def create
     @item = Item.new(item_params)
+    authorize @item
     if @item.save
       redirect_to @item
     else
@@ -51,7 +53,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title, :price, :image, :desc, category_ids: [])
+    params.require(:item).permit(:title, :price, :image, :desc, :status, category_ids: [])
   end
 
   def set_item

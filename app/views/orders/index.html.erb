@@ -1,3 +1,48 @@
-<% @orders.each do |order|%>
-  <%= render 'invoice', order: order%>
-<% end %>
+<% if @completedorders.any? %>
+<h2 class=' text-center mt-5 custom-border'>Completed Orders</h2>
+<div class='row mr-0'>
+  <% @completedorders.each_slice(3) do |order| %>
+    <% order.each do |orders| %>
+      <div class='col-lg-4 col-md-6 mt-2 mb-4'>
+        <%= render 'invoice', order: orders%>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<%end%>
+<% if @pendingorders.any? %>
+<h2 class=' text-center mt-5 custom-border'>Pending Orders</h2>
+<div class='row mr-0'>
+  <% @pendingorders.each_slice(3) do |order| %>
+    <% order.each do |orders| %>
+      <div class='col-lg-4 col-md-6 mt-2 mb-4'>
+        <%= render 'invoice', order: orders%>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<%end%>
+<% if @cancelorders.any? %>
+<h2 class=' text-center mt-5 custom-border'>Cancelled Orders</h2>
+<div class='row mr-0'>
+  <% @cancelorders.each_slice(3) do |order| %>
+    <% order.each do |orders| %>
+      <div class='col-lg-4 col-md-6 mt-2 mb-4'>
+        <%= render 'invoice', order: orders%>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<%end%>
+<% if @paidorders.any? %>
+<h2 class=' text-center mt-5 custom-border'>Paid Orders</h2>
+<div class='row mr-0'>
+  <% @paidorders.each_slice(3) do |order| %>
+    <% order.each do |orders| %>
+      <div class='col-lg-4 col-md-6 mt-2 mb-4'>
+        <%= render 'invoice', order: orders%>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<%end%>

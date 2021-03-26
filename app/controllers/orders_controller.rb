@@ -5,9 +5,15 @@ class OrdersController < ApplicationController
   def index
 
     if user_signed_in? && current_user.admin?
-      @orders = Order.all
+      @completedorders = Order.where(status: 'Completed')
+      @pendingorders = Order.where(status: 'pending')
+      @cancelorders = Order.where(status: 'Cancel')
+      @paidorders = Order.where(status: 'Paid')
     elsif user_signed_in? && !current_user.admin?
-      @orders = current_user.orders
+      @completedorders = current_user.orders.where(status: 'Completed')
+      @pendingorders = current_user.orders.where(status: 'pending')
+      @cancelorders = current_user.orders.where(status: 'Cancel')
+      @paidorders = current_user.orders.where(status: 'Paid')
     else
       flash[:alert] = "You are not authorized to access Orders"
       redirect_to root_path

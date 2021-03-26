@@ -1,4 +1,4 @@
-<table class='body-wrap'>
+<table>
   <tbody>
     <tr>
       <td class='container' width='600'>
@@ -26,7 +26,9 @@
                                   <%= User.find(order.user_id).fname %>
                                 <%end%>
                                 <br><b>Created at: </b>
-                                <%= order.created_at%><br><b>Order Status: <span class='text-danger'><%= order.status%></span></td>
+                                <%= order.created_at%><br>
+                                <b>Order Status: <span class='text-danger'><%= order.status%></span></b><br>
+                                <b>Updated at: </b><%= order.updated_at%><br></td>
                               </tr>
                               <tr>
                                 <td>

@@ -19,10 +19,10 @@
                 <% cb.label(class: "checkbox-inline input_checkbox mr-2") {cb.check_box(class: "checkbox") + ' ' + cb.text} %>
               <% end %>
             </p>
-            <p>
-              <%= form.label :image %><br>
-              <%= form.file_field :image ,class: 'form-control'%>
-            </p>
+            <div class='container row'>
+              <%= form.file_field :image ,class: 'form-control col-sm-6 mr-3 mb-2'%>
+              <%= form.select(:status, options_for_select([['active'], ['retire']]), {}, {class: 'form-control col-sm-3'}) %>
+            </div>
             <p>
               <%= form.label :description %><br>
               <%= form.text_area :desc, rows: 8,  placeholder: "Description of the the Food Item", class: 'form-control'%>

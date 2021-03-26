@@ -1,14 +1,16 @@
 class CategoriesController < ApplicationController
 
   before_action :set_category, only: [:edit, :update, :show, :destroy]
-  before_action :set_authorize, only: [:new, :edit, :destroy]
+  before_action :set_authorize, only: [:edit, :destroy]
 
   def new
     @category = Category.new
+    authorize @category
   end
 
   def create
     @category = Category.new(category_params)
+    authorize @category
     if @category.save
       redirect_to @category
     else

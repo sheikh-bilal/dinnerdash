@@ -5,7 +5,7 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def show?
-    return true if (user.present? and (record.user_id == user.id))
+    return true if ((user.present? && user.admin?) || ( user.present? && record.user_id == user.id))
   end
 
   def showUI?
