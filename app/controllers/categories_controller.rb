@@ -25,9 +25,9 @@ class CategoriesController < ApplicationController
 
   def show
     if user_signed_in?
-      @items = @category.items
+      @items = @category.items.page(params[:page]).per(6)
     else
-      @items = @category.items.where( status: 'active')
+      @items = @category.items.where( status: 'active').page(params[:page]).per(6)
     end
     @cart_item = current_cart.cart_items.new
   end

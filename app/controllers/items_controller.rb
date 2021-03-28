@@ -8,9 +8,9 @@ class ItemsController < ApplicationController
 
   def index
     if user_signed_in?
-      @items = Item.all
+      @items = Item.page(params[:page]).per(6)
     else
-      @items = Item.where( status: 'active')
+      @items = Item.where( status: 'active').page(params[:page]).per(6)
     end
 
     @cart_item = current_cart.cart_items.new

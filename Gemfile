@@ -18,6 +18,8 @@ gem 'bootstrap', '~> 4.0.0'
 
 gem 'jquery-rails'
 
+gem 'kaminari'
+
 gem 'rails-ujs', '~> 0.1.0'
 
 gem 'carrierwave', '~> 2.0'

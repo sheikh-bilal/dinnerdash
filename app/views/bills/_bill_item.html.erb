@@ -31,7 +31,7 @@
               <div class='row mt-3'>
                 <%= form_for item, remote: true do |f| %>
                 <%= f.hidden_field :item_id, :value => item.item.id %>
-                <%= f.number_field :quantity, :value => item.quantity.to_i , class: 'col-sm-10 text-center mb-2 py-1 customMargin'%>
+                <%= f.number_field :quantity, :value => item.quantity.to_i, min: 1, class: 'col-sm-10 text-center mb-2 py-1 customMargin'%>
                 <%= button_tag( :class => "btn btn-success col-sm-5 customMargin mb-1", onclick: "updatecart()") do %> <i class='fa fa-shopping-cart mr-2'></i>Updated Cart
                 <% end %>
                 <%= link_to cart_item_path(item), method: :delete,

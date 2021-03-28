@@ -12,7 +12,7 @@
             </p>
             <p>
               <%= form.label :price %><br>
-              <%= form.number_field :price ,class: 'form-control',placeholder: "Enter price for item"%>
+              <%= form.number_field :price, min: 0, class: 'form-control',placeholder: "Enter price for item"%>
             </p>
             <p>
               <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>

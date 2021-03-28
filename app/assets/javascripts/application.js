@@ -17,8 +17,8 @@
 
 
   function addtocart(){
-    alert("Item is Added to Cart");
+    alert("Item Added to Cart");
   }
   function updatecart(){
-    alert("Item is Updated Successfully!");
+    alert("Cart is Updated Successfully!");
   }

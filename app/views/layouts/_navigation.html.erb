@@ -72,17 +72,17 @@
                 </li><hr class='mb-0'>
                 <li class='nav-link cat-li'>
                   <%= link_to items_path do%>
-                    <i class='fa fa-eye mr-1'></i> Display Items
+                    <i class='fa fa-list-ul mr-1'></i> Display Items
                   <%end%>
                 </li><hr class='mb-0'>
                 <li class='nav-link cat-li'>
                   <%= link_to categories_path do%>
-                    <i class='fa fa-eye mr-1'></i> All Categories
+                    <i class=' fa fa-list mr-1'></i> All Categories
                   <%end%>
                 </li><hr class='mb-0'>
                 <li class='nav-link cat-li'>
                   <%= link_to users_path do%>
-                    <i class='fa fa-user mr-1'></i> All Users
+                    <i class='fa fa-user mr-1'></i> Display Users
                   <%end%>
                 </li><hr class='mb-0'>
             </ul>
@@ -90,7 +90,7 @@
         <%end%>
 
         <li class='dropdown nav-item'>
-          <a href='#' class='dropdown-toggle nav-link' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'><i class='fa fa-shopping-cart'></i> Orders <span class='caret'></span></a>
+          <a href='#' class='dropdown-toggle nav-link' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'><i class='fa fa-shopping-basket'></i> Orders <span class='caret'></span></a>
           <ul class='dropdown-menu mt-3 text-center bg-dark' id='bill'>
             <%= render 'bills/bill'%>
           </ul>
