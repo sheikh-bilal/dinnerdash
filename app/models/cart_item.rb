@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class cart items
 class CartItem < ApplicationRecord
   include CartItemsHelper
   belongs_to :cart

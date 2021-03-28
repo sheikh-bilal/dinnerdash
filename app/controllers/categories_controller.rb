@@ -1,7 +1,9 @@
-class CategoriesController < ApplicationController
+# frozen_string_literal: true
 
-  before_action :set_category, only: [:edit, :update, :show, :destroy]
-  before_action :set_authorize, only: [:edit, :destroy]
+# class categories controller
+class CategoriesController < ApplicationController
+  before_action :set_category, only: %i[edit update show destroy]
+  before_action :set_authorize, only: %i[edit destroy]
 
   def new
     @category = Category.new
@@ -14,7 +16,7 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to @category
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -24,22 +26,21 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    if user_signed_in?
-      @items = @category.items.page(params[:page]).per(6)
-    else
-      @items = @category.items.where( status: 'active').page(params[:page]).per(6)
-    end
+    @items = if user_signed_in?
+               @category.items.page(params[:page]).per(6)
+             else
+               @category.items.where(status: 'active').page(params[:page]).per(6)
+             end
     @cart_item = current_cart.cart_items.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @category.update(category_params)
       redirect_to @category
     else
-      render "edit"
+      render 'edit'
     end
   end
 

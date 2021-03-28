@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# add status column
 class RemoveSubtotalFromOrders < ActiveRecord::Migration[5.2]
   def change
     remove_column :orders, :subtotal

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class orderitemscontroller
 class OrderItemsController < ApplicationController
   include OrderItemsHelper
   def create

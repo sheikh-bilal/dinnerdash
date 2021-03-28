@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users
-  get "home/index"
+  get 'home/index'
   resources :items
   resources :categories
   resources :users
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :cart_items
   resources :carts
-  resource :bills, only:[:show]
-  delete "users/:id", to: "users#destroy"
-  root "home#index"
+  resource :bills, only: [:show]
+  delete 'users/:id', to: 'users#destroy'
+  root 'home#index'
 end

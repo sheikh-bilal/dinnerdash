@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class cart
 class Cart < ApplicationRecord
   include CartsHelper
   has_many :cart_items, dependent: :destroy
@@ -8,5 +11,4 @@ class Cart < ApplicationRecord
   def set_subtotal
     self[:subtotal] = subtotal
   end
-
 end

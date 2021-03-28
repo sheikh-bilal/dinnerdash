@@ -2,16 +2,15 @@
 
 # items controller for managing action on food items
 class ItemsController < ApplicationController
-
-  before_action :set_item, only: [:edit, :show, :update, :destroy]
-  before_action :set_authorize, only: [:edit, :destroy]
+  before_action :set_item, only: %i[edit show update destroy]
+  before_action :set_authorize, only: %i[edit destroy]
 
   def index
-    if user_signed_in?
-      @items = Item.page(params[:page]).per(6)
-    else
-      @items = Item.where( status: 'active').page(params[:page]).per(6)
-    end
+    @items = if user_signed_in?
+               Item.page(params[:page]).per(6)
+             else
+               Item.where(status: 'active').page(params[:page]).per(6)
+             end
 
     @cart_item = current_cart.cart_items.new
   end
@@ -31,19 +30,17 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def update
     if @item.update(item_params)
       redirect_to @item
     else
-      render "edit"
+      render 'edit'
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def destroy
     @item.destroy

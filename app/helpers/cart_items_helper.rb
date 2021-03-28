@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# create helper for cartitems
 module CartItemsHelper
   def unit_price
     if persisted?
@@ -8,6 +11,6 @@ module CartItemsHelper
   end
 
   def total
-    unit_price*quantity
+    unit_price * quantity
   end
 end

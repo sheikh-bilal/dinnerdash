@@ -1,13 +1,17 @@
+# frozen_string_literal: true
+
+# module order helper
 module OrdersHelper
   def dropdowndata(order)
-    if order.status == 'pending'
-      option = ['Cancel', 'pending', 'Completed', 'Paid']
-    elsif order.status == 'Paid'
-      option = ['Cancel', 'Completed', 'Paid']
-    elsif order.status == 'Cancel'
-      option = ['Cancel']
-    else
-      option = ['Completed']
-    end
+    option = case order.status
+             when 'pending'
+               %w[Cancel pending Completed Paid]
+             when 'Paid'
+               %w[Cancel Completed Paid]
+             when 'Cancel'
+               ['Cancel']
+             else
+               ['Completed']
+             end
   end
 end
