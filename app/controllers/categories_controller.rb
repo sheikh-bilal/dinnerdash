@@ -21,7 +21,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.all
+    @categories = Category.page(params[:page]).per(3)
     authorize @categories
   end
 
