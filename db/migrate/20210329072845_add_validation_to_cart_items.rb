@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# add validation
 class AddValidationToCartItems < ActiveRecord::Migration[5.2]
   def change
     change_column_null :cart_items, :quantity, false
