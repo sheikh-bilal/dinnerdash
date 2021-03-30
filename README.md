@@ -4,25 +4,36 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+DinnerDiner is a Resturant based app for online food delivery.
 
-* Ruby version
+*************************************************
+Components used for this project:
 
-* System dependencies
+* Ruby version 2.7
 
-* Configuration
+* Rails version 5.2.4
 
-* Database creation
+* Database Postgresql
 
-* Database initialization
+* Devise for authentication
 
-* How to run the test suite
+* Kaminari for pagination
 
-* Services (job queues, cache servers, search engines, etc.)
+* Pundit for authorization
 
-* Deployment instructions
+* Bootstrap && Jquery for styling
 
-* ...
+* Heroku for deployment
+* link: https://guarded-brushlands-03751.herokuapp.com/
+
+*************************************************
+
+Instructions:
+
+* Any customers can browse items and add items to cart or update his/her cart but to confirm his/her order he/she has to login first.
+* Only admin can update order staus like (piad, completed, pending or cancelled).
+* Customers can only update their profile and can see their orders.
+* Admin has the ability to Add new product, add category, view categories AND view custommers
 =======
 # dinnerdash
 rails dinnerdash project
