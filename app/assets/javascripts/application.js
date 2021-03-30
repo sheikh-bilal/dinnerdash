@@ -17,8 +17,15 @@
 
 
   function addtocart(){
-    alert("Item Added to Cart");
+    var x = document.getElementById("snackbar");
+    x.innerHTML = "Item is added Successfully..!!";
+    x.className = "show";
+
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }
   function updatecart(){
-    alert("Cart is Updated Successfully!");
+    var x = document.getElementById("snackbar");
+    x.innerHTML = "Cart is Updated Successfully..!!";
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }

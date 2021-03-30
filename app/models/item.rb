@@ -16,6 +16,6 @@ class Item < ApplicationRecord
   private
 
   def must_have_one_item
-    errors.add(:base, 'You must select at least one item') if category_ids.all?(&:blank?)
+    errors.add(:base, 'You must select at least one category') if category_ids.all?(&:blank?)
   end
 end
