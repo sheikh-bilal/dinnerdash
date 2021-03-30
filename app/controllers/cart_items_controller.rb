@@ -2,10 +2,11 @@
 
 # class cartcontroller
 class CartItemsController < ApplicationController
+  include CartItemsHelper
   before_action :set_cart_items, only: %i[create update destroy]
 
   def create
-    @cart_item = @cart.cart_items.new(cart_params)
+    find_item(@cart_item, @cart)
     if @cart.save
       session[:cart_id] = @cart.id
     else
