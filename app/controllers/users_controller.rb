@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   before_action :set_authorize, only: [:show]
 
   def index
-    @users = User.all
+    @users = User.all.where(admin: false)
     authorize @users
   end
 

@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   resources :orders
   resources :cart_items
   resources :carts
-  resource :bills, only: [:show]
   delete 'users/:id', to: 'users#destroy'
   root 'home#index'
 end

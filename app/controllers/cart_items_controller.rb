@@ -18,7 +18,7 @@ class CartItemsController < ApplicationController
     if @cart_item.update_attributes(cart_params)
       @cart_items = current_cart.cart_items
     else
-      render bills_path(@cart_items)
+      render carts_path
     end
   end
 
@@ -26,7 +26,7 @@ class CartItemsController < ApplicationController
     @cart_item = @cart.cart_items.find(params[:id])
     @cart_item.destroy
     @cart_items = current_cart.cart_items
-    redirect_to bills_path(@cart_items)
+    redirect_to carts_path
   end
 
   private

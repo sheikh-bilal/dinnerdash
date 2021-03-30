@@ -5,7 +5,7 @@
   <%= link_to " You have ordered #{current_cart.cart_items.size} item with value: #{current_cart.subtotal }Rs" %><hr class='mb-0'>
 </li>
 <li class='nav-link cat-li'>
-  <%= link_to bills_path, class: 'btn btn-danger' do%>
+  <%= link_to carts_path, class: 'btn btn-danger' do%>
     View Cart <i class="fa fa-shopping-cart"></i>
   <%end%>
-  </li>
+</li>
