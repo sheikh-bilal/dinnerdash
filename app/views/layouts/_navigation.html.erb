@@ -36,8 +36,8 @@
                 <%end%>
               </li><hr class='mb-0'>
               <li class='nav-link cat-li'>
-                <%= link_to destroy_user_session_path, method: :delete,  data: {confirm: "Are You sure? you want to Logout?", class: 'modal-body'} do%>
-                  <i class='fa fa-sign-in mr-2'></i> Log Out
+                <%= link_to destroy_user_session_path, class: 'btn btn-danger',method: :delete,  data: {confirm: "Are You sure? you want to Logout?", class: 'modal-body'} do%>
+                  <i class='fa fa-sign-in mr-1'></i> Logout
                 <%end%>
               </li>
             <%else%>
