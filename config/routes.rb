@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   resources :items
   resources :categories
   resources :users
-  resources :order_items
-  resources :orders
-  resources :cart_items
-  resources :carts
+  resource :order_items, only: [:create]
+  resources :orders, only: [:index, :edit, :show, :update]
+  resources :cart_items, only: [:create, :update, :destroy]
+  resources :carts, only: [:index, :destroy]
   delete 'users/:id', to: 'users#destroy'
   root 'home#index'
 end
