@@ -52,13 +52,13 @@
       <% end %>
     </div>
   </div>
-  <%else%>
-    <div class='main mt-4 mb-4'>
-      <div class='container-signup'>
-        <div class='signup-content shadow'>
-          <h2 class='text-center mt-4 mb-4'>Cart is Empty..!!</h2><hr>
-          <p class='text-center'>Order Something first <%= link_to 'Menu', items_path, class: 'ml-2 btn btn-sm btn-primary'%></p>
-        </div>
+<%else%>
+  <div class='main mt-4 mb-4'>
+    <div class='container-signup'>
+      <div class='signup-content shadow'>
+        <h2 class='text-center mt-4 mb-4'>Cart is Empty..!!</h2><hr>
+        <p class='text-center'>Order Something first <%= link_to 'Menu', items_path, class: 'ml-2 btn btn-sm btn-primary'%></p>
       </div>
     </div>
-  <%end%>
+  </div>
+<%end%>
