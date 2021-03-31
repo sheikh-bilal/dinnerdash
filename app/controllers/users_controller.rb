@@ -3,7 +3,7 @@
 # class usercontroller
 class UsersController < ApplicationController
   before_action :set_user, only: %i[edit update show]
-  before_action :set_authorize, only: [:show]
+  before_action :authorize_user, only: [:show]
 
   def index
     @users = User.all.where(admin: false)
@@ -26,9 +26,11 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    authorize @user
-    @user.destroy
-    redirect_to root_path
+    authorize_user
+    if @user.destroy
+      flash[:alert] = 'Your Account has been deleted Successfully..!!'
+      redirect_to root_path
+    end
   end
 
   private
@@ -41,7 +43,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def set_authorize
+  def authorize_user
     authorize @user
   end
 end

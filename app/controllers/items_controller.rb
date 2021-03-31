@@ -3,7 +3,7 @@
 # items controller for managing action on food items
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[edit show update destroy]
-  before_action :set_authorize, only: %i[edit destroy]
+  before_action :authorize_item, only: %i[edit destroy]
 
   def index
     @items = if user_signed_in?
@@ -17,12 +17,12 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    authorize @item
+    authorize_item
   end
 
   def create
     @item = Item.new(item_params)
-    authorize @item
+    authorize_item
     if @item.save
       redirect_to @item
     else
@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def set_authorize
+  def authorize_item
     authorize @item
   end
 end

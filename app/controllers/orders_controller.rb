@@ -36,7 +36,7 @@ class OrdersController < ApplicationController
       flash[:notice] = 'Updated successfully'
       redirect_to orders_path
     else
-      flash[:alert] = 'Updated Error!!'
+      flash[:alert] = 'Error in updating order status..!!'
       render 'edit'
     end
   end

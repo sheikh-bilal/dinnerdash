@@ -9,7 +9,9 @@ class CartsController < ApplicationController
   def destroy
     @cart = current_cart
     session[:cart_id] = nil
-    @cart.destroy
-    redirect_to items_path
+    if @cart.destroy
+      flash[:alert] = 'Your cart is Cleared.!!'
+      redirect_to items_path
+    end
   end
 end

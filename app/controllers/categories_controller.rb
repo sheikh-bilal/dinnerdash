@@ -3,18 +3,18 @@
 # class categories controller
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[edit update show destroy]
-  before_action :set_authorize, only: %i[edit destroy]
+  before_action :authorize_category, only: %i[edit destroy]
 
   def new
     @category = Category.new
-    authorize @category
+    authorize_category
   end
 
   def create
     @category = Category.new(category_params)
-    authorize @category
+    authorize_category
     if @category.save
-      redirect_to @category
+      redirect_to categories_path
     else
       render 'new'
     end
@@ -59,7 +59,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
-  def set_authorize
+  def authorize_category
     authorize @category
   end
 end

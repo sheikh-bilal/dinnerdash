@@ -17,6 +17,7 @@ class OrderItemsController < ApplicationController
       current_cart.destroy
       redirect_to orders_path
     else
+      flash[:alert] = 'Order not created successfully'
       render items_path
     end
   end

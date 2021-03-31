@@ -25,9 +25,13 @@ class CartItemsController < ApplicationController
 
   def destroy
     @cart_item = @cart.cart_items.find(params[:id])
-    @cart_item.destroy
-    @cart_items = current_cart.cart_items
-    redirect_to carts_path
+    if @cart_item.destroy
+      @cart_items = current_cart.cart_items
+      flash[:alert] = 'Item is removed from cart!'
+      redirect_to carts_path
+    else
+      flash[:alert] = 'Error occured while removing Item!'
+    end
   end
 
   private
