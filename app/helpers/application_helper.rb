@@ -10,7 +10,9 @@ module ApplicationHelper
     end
   end
 
+  # rubocop:disable Naming/PredicateName
   def is_retire(record)
     return true if record.status == 'retire'
   end
+  # rubocop:enable Naming/PredicateName
 end

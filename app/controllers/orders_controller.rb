@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/MethodLength
+# rubocop:disable Metrics/AbcSize
 # class orders controller
 class OrdersController < ApplicationController
   include OrdersHelper
   before_action :set_order, only: %i[edit show update]
   before_action :set_authorize, only: %i[edit show update]
+
   def index
     if user_signed_in? && current_user.admin?
       @completedorders = Order.where(status: 'Completed')
@@ -21,6 +24,8 @@ class OrdersController < ApplicationController
       redirect_to root_path
     end
   end
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
 
   def edit; end
 

@@ -3,15 +3,15 @@
 # module order helper
 module OrdersHelper
   def dropdowndata(order)
-    option = case order.status
-             when 'pending'
-               %w[Cancel pending Completed Paid]
-             when 'Paid'
-               %w[Cancel Completed Paid]
-             when 'Cancel'
-               ['Cancel']
-             else
-               ['Completed']
-             end
+    case order.status
+    when 'pending'
+      %w[Cancel pending Completed Paid]
+    when 'Paid'
+      %w[Cancel Completed Paid]
+    when 'Cancel'
+      ['Cancel']
+    else
+      ['Completed']
+    end
   end
 end

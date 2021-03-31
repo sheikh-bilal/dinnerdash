@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   resources :categories
   resources :users
   resource :order_items, only: [:create]
-  resources :orders, only: [:index, :edit, :show, :update]
-  resources :cart_items, only: [:create, :update, :destroy]
-  resources :carts, only: [:index, :destroy]
+  resources :orders, only: %i[index edit show update]
+  resources :cart_items, only: %i[create update destroy]
+  resources :carts, only: %i[index destroy]
   delete 'users/:id', to: 'users#destroy'
   root 'home#index'
 end

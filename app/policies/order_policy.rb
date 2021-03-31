@@ -10,7 +10,7 @@ class OrderPolicy < ApplicationPolicy
     return true if (user.present? && user.admin?) || (user.present? && record.user_id == user.id)
   end
 
-  def showUI?
+  def show_ui?
     return true if user.present? && user.admin?
   end
 

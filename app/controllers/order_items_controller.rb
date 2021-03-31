@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/MethodLength
+# rubocop:disable Metrics/AbcSize
 # class orderitemscontroller
 class OrderItemsController < ApplicationController
   include OrderItemsHelper
@@ -18,6 +20,8 @@ class OrderItemsController < ApplicationController
       render items_path
     end
   end
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
 
   private
 
