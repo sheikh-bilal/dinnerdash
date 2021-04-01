@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :cart_items, only: %i[create update destroy]
   resources :carts, only: %i[index destroy]
   delete 'users/:id', to: 'users#destroy'
+  get 'search', to: 'items#search'
   root 'home#index'
 end

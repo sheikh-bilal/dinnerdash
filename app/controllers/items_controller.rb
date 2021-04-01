@@ -47,6 +47,11 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
+  def search
+    @items = Item.where("title LIKE ?","%" + params[:item].capitalize() + "%").page(params[:page]).per(6)
+    @cart_item = current_cart.cart_items.new
+  end
+
   private
 
   def item_params
