@@ -4,4 +4,4 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Admin Seed Data
-User.create(fname: 'John Murfi',email: 'johnthedon@example.com',dname: 'mango', password: 'johndon', admin: true)
+User.create(fname: 'John Murfi', email: 'johnthedon@example.com', dname: 'mango', password: 'johndon', admin: true)

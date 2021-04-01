@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = Item.where("title LIKE ?","%" + params[:item].capitalize() + "%").page(params[:page]).per(6)
+    @items = Item.where('title LIKE ?', "%#{params[:item].capitalize}%").page(params[:page]).per(6)
     @cart_item = current_cart.cart_items.new
   end
 

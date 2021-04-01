@@ -12,5 +12,4 @@ class Item < ApplicationRecord
   validate { errors.add(:base, 'You must select at least one category') if category_ids.all?(&:blank?) }
 
   mount_uploader :image, AvatarUploader
-
 end
