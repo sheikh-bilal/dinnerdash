@@ -43,7 +43,7 @@ class ItemsController < ApplicationController
   def edit; end
 
   def destroy
-    if@item.destroy
+    if @item.destroy
       flash[:alert] = 'Item is destroyed.!!'
         redirect_to items_path
     else

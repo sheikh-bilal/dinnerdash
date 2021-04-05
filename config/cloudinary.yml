@@ -1,0 +1,9 @@
+development:
+  cloud_name: "bilalahm3d"
+  api_key: <%= ENV["API_KEY"] %>
+  api_secret: <%= ENV["SECRET_API_KEY"] %>
+
+production:
+  cloud_name: "bilalahm3d"
+  api_key: <%= ENV["API_KEY"] %>
+  api_secret: <%= ENV["SECRET_API_KEY"] %>

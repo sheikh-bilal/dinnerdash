@@ -5,7 +5,7 @@
       <div class="card-heading"></div>
         <div class="card-body">
           <h2 class="title"><%= local_assigns[:action] %></h2>
-          <%= form_with model: @item, local: true do |form| %>
+          <%= form_with model: @item, local: true, multipart: true do |form| %>
             <p>
               <%= form.label :title %><br>
               <%= form.text_field :title, placeholder: "Title of the item", class: 'form-control'%>
