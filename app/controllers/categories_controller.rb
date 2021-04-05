@@ -45,8 +45,13 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category.destroy
-    redirect_to categories_path
+    if @category.destroy
+      flash[:alert] = 'Category is destroyed.!!'
+      redirect_to categories_path
+    else
+      flash[:alert] = 'Error: category not destroyed..!!'
+      redirect_to categories_path
+    end
   end
 
   private

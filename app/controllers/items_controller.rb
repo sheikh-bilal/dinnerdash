@@ -43,8 +43,13 @@ class ItemsController < ApplicationController
   def edit; end
 
   def destroy
-    @item.destroy
-    redirect_to items_path
+    if@item.destroy
+      flash[:alert] = 'Item is destroyed.!!'
+        redirect_to items_path
+    else
+      flash[:alert] = 'Error: item not destroyed..!!'
+      redirect_to items_path
+    end
   end
 
   def search

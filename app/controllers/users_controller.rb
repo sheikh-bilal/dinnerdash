@@ -30,6 +30,9 @@ class UsersController < ApplicationController
     if @user.destroy
       flash[:alert] = 'Your Account has been deleted Successfully..!!'
       redirect_to root_path
+    else
+      flash[:alert] = 'Error: account not deleted..!!'
+      redirect_to root_path
     end
   end
 

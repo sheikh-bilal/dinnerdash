@@ -12,6 +12,9 @@ class CartsController < ApplicationController
     if @cart.destroy
       flash[:alert] = 'Your cart is Cleared.!!'
       redirect_to items_path
+    else
+      flash[:alert] = 'You got an Error..!!'
+      render 'index'
     end
   end
 end
