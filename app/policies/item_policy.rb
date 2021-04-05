@@ -3,11 +3,11 @@
 # item policy
 class ItemPolicy < ApplicationPolicy
   def new?
-    return true if user.present? && user.admin?
+    authenticate?
   end
 
   def create?
-    return true if user.present? && user.admin?
+    authenticate?
   end
 
   def index?
@@ -15,14 +15,19 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def edit?
-    return true if user.present? && user.admin?
+    authenticate?
   end
 
   def show?
-    return true if user.present? && user.admin?
+    authenticate?
   end
 
   def destroy?
+    authenticate?
+  end
+
+  private
+  def authenticate?
     return true if user.present? && user.admin?
   end
 end

@@ -11,14 +11,19 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def show_ui?
-    return true if user.present? && user.admin?
+    authenticate?
   end
 
   def edit?
-    return true if user.present? && user.admin?
+    authenticate?
   end
 
   def update?
+    authenticate?
+  end
+
+  private
+  def authenticate?
     return true if user.present? && user.admin?
   end
 end

@@ -2,23 +2,33 @@
 
 # policy for category
 class CategoryPolicy < ApplicationPolicy
+
+  def new?
+    check_admin?
+  end
+
   def index?
-    return true if user.present? && user.admin?
+    check_admin?
   end
 
   def show?
-    return true if user.present? && user.admin?
+    check_admin?
   end
 
   def edit?
-    return true if user.present? && user.admin?
+    check_admin?
   end
 
   def create?
-    return true if user.present? && user.admin?
+    check_admin?
   end
 
   def destroy?
+    check_admin?
+  end
+
+  private
+  def check_admin?
     return true if user.present? && user.admin?
   end
 end

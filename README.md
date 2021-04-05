@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
 DinnerDiner is a Resturant based app for online food delivery.
 
@@ -13,13 +8,13 @@ Components used for this project:
 
 * Rails version 5.2.4
 
-* Database Postgresql
+* Database Postgresql 12.6
 
 * Devise for authentication
 
 * Kaminari for pagination
 
-* Pundit for authorization
+* Pundit for authorization 2.1.0
 
 * Bootstrap && Jquery for styling
 
@@ -35,6 +30,3 @@ Instructions:
 * Customers can only update their profile and can see their orders.
 * Admin has the ability to Add new product, add category, view categories AND view custommers
 =======
-# dinnerdash
-rails dinnerdash project
->>>>>>> d2ebcb232b30f0593c10fb3147a795e79e12732d
