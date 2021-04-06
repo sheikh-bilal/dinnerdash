@@ -4,7 +4,7 @@
 module OrderItemsHelper
   def copydata(order)
     current_cart.cart_items.each do |cart_item|
-      @check = order.order_items.create(
+      @check = order.order_items.new(
         quantity: cart_item.quantity,
         item_id: cart_item.item_id,
         order_id: order.id,
