@@ -12,6 +12,8 @@ Components used for this project:
 
 * Devise for authentication
 
+* Carrierwave & cloudinary for image handling
+
 * Kaminari for pagination
 
 * Pundit for authorization 2.1.0
