@@ -31,4 +31,5 @@ Instructions:
 * Only admin can update order staus like (piad, completed, pending or cancelled).
 * Customers can only update their profile and can see their orders.
 * Admin has the ability to Add new product, add category, view categories AND view custommers
-=======
+
+*************************************************
